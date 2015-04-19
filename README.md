@@ -7,9 +7,9 @@ This README outlines the details of collaborating on this Ember addon.
 A deploy pipeline is a tree of tasks. Each task is an object, provided by another addon (so third parties can extend it). A task only runs if its preceding task succeeds.
 
 Tasks have hooks:
-`task.run(config)` - do whatever this task does
-`task.rollback()` - undo whatever this task did
-'task.cleanup()' - clean up any backups taken in case of rollback
++ `task.run(config)` - do whatever this task does
++ `task.rollback()` - undo whatever this task did
++ 'task.cleanup()' - clean up any backups taken in case of rollback
 
 If a task fails, all preceding tasks will be rolled back in reverse order. If no tasks fail, `cleanup()` will be called on every task.
 

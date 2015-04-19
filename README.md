@@ -4,7 +4,7 @@ This README outlines the details of collaborating on this Ember addon.
 
 ## Architecture
 
-A deploy pipeline is a tree of tasks. Each task is an object, provided by another addon (so third parties can extend it). A task only runs if its preceding task succeeds.
+A deploy pipeline is a tree of tasks. Each task is an object, provided by another addon (so third parties can extend the capabilities of the pipeline). A task only runs if its preceding task succeeds.
 
 Tasks have hooks:
 + `task.run(config)` - do whatever this task does
@@ -17,11 +17,13 @@ A task is an object, not a singleton, so can be used more than once in a pipelin
 
 Task config can reference data from the output of any preceding task.
 
-Blueprints will be available for the most common pipelines (e.g. Luke Melia, S3+Cloudfront)
-
 `task.run()` will either return null or a POJO if it succeeds, or an `Error` if it fails. If the POJO includes a `message` property this will be logged to the console.
 
-A task's README will document the structure of the required `config` and its output POJO if it has one.
+A task addon's README will document the structure of the required `config` and its output POJO if it has one.
+
+## Common pipelines
+
+Blueprints will be available for the most common pipelines (e.g. Luke Melia, S3+Cloudfront). Third party addons can provide new blueprints.
 
 ## Installation
 
